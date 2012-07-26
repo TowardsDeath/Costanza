@@ -12,7 +12,7 @@ namespace Costanza.Mvc
             if( notice.IsBlank() ) throw new ArgumentNullException( "notice" );
 
             var div = new TagBuilder( "div" );
-            div.MergeAttributes( new RouteValueDictionary( htmlAttributes ), false );
+            div.MergeAttributes( HtmlHelper.AnonymousObjectToHtmlAttributes( htmlAttributes ), false );
             div.InnerHtml += notice;
             return MvcHtmlString.Create( div.ToString( TagRenderMode.Normal ) );
         }

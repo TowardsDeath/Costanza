@@ -12,7 +12,8 @@ namespace Costanza.Mvc
         }
         public static MvcHtmlString UrlLink( this HtmlHelper helper, string url, string text, object htmlAttributes )
         {
-            return helper.UrlLink( url, text, new RouteValueDictionary( htmlAttributes ) );
+            var normalizedAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes( htmlAttributes );
+            return helper.UrlLink( url, text, normalizedAttributes );
         }
 
         public static MvcHtmlString UrlLink( this HtmlHelper helper, string url, string text, RouteValueDictionary htmlAttributes )
