@@ -38,7 +38,7 @@ namespace Costanza
         /// </remarks>
         public static string FormatWith( this string format, params object[] args )
         {
-            return format.FormatWith( CultureInfo.InvariantCulture, args );
+            return format.FormatWith( CultureInfo.CurrentCulture, args );
         }
 
         /// <summary>
