@@ -44,7 +44,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConversionExtensionsForStringFacts.cs" />
+    <Compile Include="ConversionToolFacts.cs" />
+    <Compile Include="DateTimeToolFacts.cs" />
     <Compile Include="ExtensionsForStringFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

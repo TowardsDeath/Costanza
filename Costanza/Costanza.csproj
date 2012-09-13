@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversionTool.cs" />
+    <Compile Include="DateTimeTool.cs" />
     <Compile Include="ExtensionsForString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
