@@ -13,8 +13,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 var date = DateTimeOffset.UtcNow.AddYears( -1 ).AddDays( -1 );
+
                 // Act
                 bool returned = DateTimeTool.IsAtLeastAYearAgo( date );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -24,8 +26,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 var now = DateTimeOffset.UtcNow;
+
                 // Act
                 bool returned = DateTimeTool.IsAtLeastAYearAgo( now );
+
                 // Assert
                 Assert.Equal( false, returned );
             }
@@ -38,8 +42,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 var date = DateTimeOffset.UtcNow.AddYears( 1 ).AddDays( 1 );
+
                 // Act
                 bool returned = DateTimeTool.IsAtLeastAYearFromNow( date );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -49,23 +55,27 @@ namespace Costanza.Tests
             {
                 // Arrange
                 var now = DateTimeOffset.UtcNow;
+
                 // Act
                 bool returned = DateTimeTool.IsAtLeastAYearFromNow( now );
+
                 // Assert
                 Assert.Equal( false, returned );
             }
         }
 
-        public class IsOngoingMethod
+        public class IsNowInRangeMethod
         {
             [Fact]
-            public void CorrectlyDeterminesOngoingRange()
+            public void CorrectlyDeterminesWithinRange()
             {
                 // Arrange
                 var start = DateTimeOffset.UtcNow.AddDays( -1 );
                 var end = DateTimeOffset.UtcNow.AddDays( 1 );
+
                 // Act
-                bool returned = DateTimeTool.IsOngoing( start, end );
+                bool returned = DateTimeTool.IsNowInRange( start, end );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -76,8 +86,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = DateTimeOffset.UtcNow.AddDays( -2 );
                 var end = DateTimeOffset.UtcNow.AddDays( -1 );
+
                 // Act
-                bool returned = DateTimeTool.IsOngoing( start, end );
+                bool returned = DateTimeTool.IsNowInRange( start, end );
+
                 // Assert
                 Assert.Equal( false, returned );
             }
@@ -90,8 +102,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 var now = DateTimeOffset.UtcNow;
+
                 // Act
                 bool returned = DateTimeTool.IsToday( now );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -101,8 +115,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 var tomorrow = DateTimeOffset.UtcNow.AddDays( 1 );
+
                 // Act
                 bool returned = DateTimeTool.IsToday( tomorrow );
+
                 // Assert
                 Assert.Equal( false, returned );
             }
@@ -116,8 +132,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 12, 31, 23, 0, 0 ) ); // 31 December 2012 23:00
                 var end = new DateTimeOffset( new DateTime( 2013, 1, 1, 1, 0, 0 ) ); // 1 January 2013 1:00
+
                 // Act
                 bool returned = DateTimeTool.SpansMultipleDays( start, end );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -128,8 +146,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 8, 8, 17, 0, 0 ) ); // 8 August 17:00
                 var end = new DateTimeOffset( new DateTime( 2012, 8, 8, 23, 0, 0 ) ); // 8 August 23:00
+
                 // Act
                 bool returned = DateTimeTool.SpansMultipleDays( start, end );
+
                 // Assert
                 Assert.Equal( false, returned );
             }
@@ -140,8 +160,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 8, 8, 17, 0, 0 ) ); // 8 August 17:00
                 var end = new DateTimeOffset( new DateTime( 2012, 8, 9, 17, 0, 0 ) ); // 9 August 17:00
+
                 // Act
                 bool returned = DateTimeTool.SpansMultipleDays( start, end );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -152,8 +174,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 8, 8, 17, 0, 0 ) ); // 8 August 17:00
                 var end = new DateTimeOffset( new DateTime( 2012, 8, 9, 18, 0, 0 ) ); // 9 August 18:00
+
                 // Act
                 bool returned = DateTimeTool.SpansMultipleDays( start, end );
+
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -167,8 +191,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 1, 1 ) ); // 1 January 2012
                 var end = new DateTimeOffset( new DateTime( 2012, 3, 1 ) ); // 1 March 2012
+                
                 // Act
                 bool returned = DateTimeTool.SpansMultipleMonths( start, end );
+                
                 // Assert
                 Assert.Equal( true, returned );
             }
@@ -179,8 +205,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 1, 1 ) ); // 1 January 2012
                 var end = new DateTimeOffset( new DateTime( 2012, 1, 15 ) ); // 15 January 2012
+                
                 // Act
                 bool returned = DateTimeTool.SpansMultipleMonths( start, end );
+                
                 // Assert
                 Assert.Equal( false, returned );
             }
@@ -191,8 +219,10 @@ namespace Costanza.Tests
                 // Arrange
                 var start = new DateTimeOffset( new DateTime( 2012, 12, 31 ) ); // 31 December 2012
                 var end = new DateTimeOffset( new DateTime( 2013, 1, 1 ) ); // 1 January 2013
+               
                 // Act
                 bool returned = DateTimeTool.SpansMultipleMonths( start, end );
+               
                 // Assert
                 Assert.Equal( true, returned );
             }

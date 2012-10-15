@@ -3,7 +3,7 @@
 namespace Costanza.Mvc
 {
     /// <summary>
-    /// Represents an attribute that adds a boolean parameter to an action, indicating if the current request is made with XMLHTTP.
+    /// Represents an attribute that adds a boolean parameter to an action, indicating whether the current request is made with XMLHTTP.
     /// </summary>
     public class IsAjaxRequestAttribute : ActionFilterAttribute
     {

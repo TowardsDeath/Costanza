@@ -4,12 +4,12 @@ using System.Transactions;
 namespace Costanza
 {
     /// <summary>
-    /// Provides common utility methods for Transactions.
+    /// Provides utility methods for Transactions.
     /// </summary>
     public static class TransactionTool
     {
         /// <summary>
-        /// Creates a new TransactionScope without the harmless defaults. 
+        /// Creates a new TransactionScope without the harmful defaults. 
         /// </summary>
         /// <remarks>
         /// The TransactionScope's default constructor sets values that are 
@@ -19,7 +19,7 @@ namespace Costanza
         /// </remarks>
         /// <returns>
         /// An new instance of the <c>TransactionScope</c> class, with IsolationLevel set to 
-        /// ReadCommitted, and Timeout is as large as possible.
+        /// ReadCommitted, a and Timeout that's as large as possible.
         /// </returns>
         public static TransactionScope CreateTransactionScope()
         {

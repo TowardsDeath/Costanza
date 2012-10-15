@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ValueListConstraintFacts.cs" />
+    <Compile Include="EnumValueConstraintFacts.cs" />
+    <Compile Include="EnumNameConstraintFacts.cs" />
     <Compile Include="GuidConstraintFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

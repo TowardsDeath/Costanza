@@ -4,7 +4,7 @@ using Moq;
 
 namespace Costanza.Mvc.TestHelpers
 {
-    public static class Html
+    public static class ViewHelpers
     {
         public static HtmlHelper<TModel> GetHtmlHelper<TModel>( TModel model )
         {

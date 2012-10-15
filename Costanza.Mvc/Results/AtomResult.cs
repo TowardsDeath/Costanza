@@ -5,7 +5,7 @@ using System.Xml;
 namespace Costanza.Mvc
 {
     /// <summary>
-    /// A custom action result that renders an Atom feed.
+    /// An action result that renders an Atom feed to the response.
     /// </summary>
     public class AtomResult : ActionResult
     {

@@ -14,8 +14,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "";
+
                 // Act
                 string returned = s.EmptyToNull();
+
                 // Assert
                 Assert.Equal( null, returned );
             }
@@ -25,8 +27,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = null;
+
                 // Act
                 var returned = s.EmptyToNull();
+
                 // Assert
                 Assert.Equal( null, returned );
             }
@@ -36,8 +40,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "Art Vandelay";
+
                 // Act
                 string returned = s.EmptyToNull();
+
                 // Assert
                 Assert.Equal( s, returned );
             }
@@ -51,9 +57,11 @@ namespace Costanza.Tests
                 // Arrange
                 string s = "#{3}: The {0} Extinction Crept Up {2}, Like Sunlight Through The {1} As We Looked Back In Regret";
                 var parameters = new object[] { "Sixth", "Shutters", "Slowly", 7 };
+
                 // Act
                 string returned = s.FormatWith( parameters  );
                 string expected = "#7: The Sixth Extinction Crept Up Slowly, Like Sunlight Through The Shutters As We Looked Back In Regret";
+                
                 // Assert
                 Assert.Equal( expected, returned );
             }
@@ -65,9 +73,11 @@ namespace Costanza.Tests
                 string s = "Fulham average {0} points per away game in May (the fourth best rate of all PL teams), compared to just {1} overall. Scramble.";
                 var parameters = new object[] { 1.58m, 0.76m };
                 var culture = new CultureInfo( "nl-NL" );
+                
                 // Act
                 string returned = s.FormatWith( culture, parameters );
                 string expected = "Fulham average 1,58 points per away game in May (the fourth best rate of all PL teams), compared to just 0,76 overall. Scramble.";
+                
                 // Assert
                 Assert.Equal( expected, returned );
             }
@@ -80,8 +90,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "";
+
                 // Act
                 bool b = s.HasValue();
+
                 // Assert
                 Assert.Equal( false, b );
             }
@@ -91,8 +103,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = null;
+
                 // Act
                 bool b = s.HasValue();
+
                 // Assert
                 Assert.Equal( false, b );
             }
@@ -102,8 +116,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "\r\n ";
+
                 // Act
                 bool b = s.HasValue();
+
                 // Assert
                 Assert.Equal( false, b );
             }
@@ -113,8 +129,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "Vandelay Industries";
+
                 // Act
                 bool b = s.HasValue();
+
                 // Assert
                 Assert.Equal( true, b );
             }
@@ -127,8 +145,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "";
+
                 // Act
                 bool b = s.IsBlank();
+
                 // Assert
                 Assert.Equal( true, b );
             }
@@ -138,8 +158,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = null;
+
                 // Act
                 bool b = s.IsBlank();
+
                 // Assert
                 Assert.Equal( true, b );
             }
@@ -149,8 +171,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "\r\n ";
+
                 // Act
                 bool b = s.IsBlank();
+
                 // Assert
                 Assert.Equal( true, b );
             }
@@ -160,8 +184,10 @@ namespace Costanza.Tests
             {
                 // Arrange
                 string s = "Vandelay Industries";
+
                 // Act
                 bool b = s.IsBlank();
+
                 // Assert
                 Assert.Equal( false, b );
             }

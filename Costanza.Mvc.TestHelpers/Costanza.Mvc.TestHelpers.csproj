@@ -48,7 +48,7 @@
     <Compile Include="FakeControllerContext.cs" />
     <Compile Include="FakeHttpContext.cs" />
     <Compile Include="FakeViewContext.cs" />
-    <Compile Include="Html.cs" />
+    <Compile Include="ViewHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

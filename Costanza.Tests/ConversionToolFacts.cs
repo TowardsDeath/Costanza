@@ -14,8 +14,10 @@ namespace Costanza.Tests
                 // Arrange
                 decimal d = 0.75m;
                 string s = d.ToString( CultureInfo.InvariantCulture );
+                
                 // Act
                 decimal returned = ConversionTool.ToDecimal( s );
+                
                 // Assert
                 Assert.Equal( d, returned );
             }
@@ -24,9 +26,11 @@ namespace Costanza.Tests
             public void ReturnsZeroWhenConversionFails()
             {
                 // Arrange
-                string s = "Newman";
+                string s = "Malcolm Tucker";
+              
                 // Act
                 decimal returned = ConversionTool.ToDecimal( s );
+               
                 // Assert
                 Assert.Equal( 0, returned );
             }
@@ -35,10 +39,12 @@ namespace Costanza.Tests
             public void ReturnsValueWhenConversionFails()
             {
                 // Arrange
-                string s = "Cosmo";
+                string s = "John Duggan";
                 decimal d = 0.5m;
+              
                 // Act
                 decimal returned = ConversionTool.ToDecimal( s, d );
+               
                 // Assert
                 Assert.Equal( d, returned );
             }
@@ -49,8 +55,10 @@ namespace Costanza.Tests
                 // Arrange
                 string s = "2,5";
                 var culture = new CultureInfo( "nl-NL" );
+              
                 // Act
                 decimal returned = ConversionTool.ToDecimal( s, culture );
+            
                 // Assert
                 Assert.Equal( 2.5m, returned );
             }
@@ -59,10 +67,12 @@ namespace Costanza.Tests
             public void ReturnsZeroWhenConversionFailsWithCulture()
             {
                 // Arrange
-                string s = "1,5 Leederacola";
+                string s = "1,5 fucking Fanta's";
                 var culture = new CultureInfo( "nl-NL" );
+               
                 // Act
                 decimal returned = ConversionTool.ToDecimal( s, culture );
+                
                 // Assert
                 Assert.Equal( 0, returned );
             }
@@ -71,13 +81,54 @@ namespace Costanza.Tests
             public void ReturnsValueWhenConversionFailsWithCulture()
             {
                 // Arrange
-                string s = "Bob Sacamano";
+                string s = "Peter Mannion";
                 decimal d = 0.5m;
                 var culture = new CultureInfo( "nl-NL" );
+                
                 // Act
                 decimal returned = ConversionTool.ToDecimal( s, d, culture );
+                
                 // Assert
                 Assert.Equal( d, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullStringValue()
+            {
+                // Arrange
+                string s = null;
+
+                // Arrange
+                decimal returned = ConversionTool.ToDecimal( s );
+
+                // Assert
+                Assert.Equal( 0, returned );
+            }
+
+            [Fact]
+            public void ConvertsObjectToInteger()
+            {
+                // Arrange
+                decimal i = 50m;
+
+                // Act
+                decimal returned = ConversionTool.ToDecimal( (object)i );
+
+                // Assert
+                Assert.Equal( i, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullObjectValue()
+            {
+                // Arrange
+                object o = null;
+
+                // Act
+                decimal returned = ConversionTool.ToDecimal( o );
+
+                // Assert
+                Assert.Equal( 0, returned );
             }
         }
 
@@ -89,8 +140,10 @@ namespace Costanza.Tests
                 // Arrange
                 decimal d = 3.45m;
                 string s = d.ToString( CultureInfo.InvariantCulture );
+
                 // Act
                 decimal? returned = ConversionTool.ToNullableDecimal( s );
+
                 // Assert
                 Assert.Equal( d, returned );
             }
@@ -99,9 +152,11 @@ namespace Costanza.Tests
             public void ReturnsNullWhenConversionFails()
             {
                 // Arrange
-                string s = "Cousin Jeffrey";
+                string s = "Ollie Reeder";
+
                 // Act
                 decimal? returned = ConversionTool.ToNullableDecimal( s );
+
                 // Assert
                 Assert.Equal( null, returned );
             }
@@ -112,8 +167,10 @@ namespace Costanza.Tests
                 // Arrange
                 string s = "2,6";
                 var culture = new CultureInfo( "nl-NL" );
+               
                 // Act
                 decimal? returned = ConversionTool.ToNullableDecimal( s, culture );
+                
                 // Assert
                 Assert.Equal( 2.6m, returned );
             }
@@ -122,10 +179,51 @@ namespace Costanza.Tests
             public void ReturnsNullWhenConversionFailsWithCulture()
             {
                 // Arrange
-                string s = "2,5 meow";
+                string s = "2,5 cunts";
                 var culture = new CultureInfo( "nl-NL" );
+                
                 // Act
                 decimal? returned = ConversionTool.ToNullableDecimal( s, culture );
+                
+                // Assert
+                Assert.Equal( null, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullStringValue()
+            {
+                // Arrange
+                string s = null;
+
+                // Act
+                decimal? returned = ConversionTool.ToNullableDecimal( s );
+                
+                // Assert
+                Assert.Equal( null, returned );
+            }
+
+            [Fact]
+            public void ConvertsObjectToInteger()
+            {
+                // Arrange
+                decimal i = 50m;
+
+                // Act
+                decimal? returned = ConversionTool.ToNullableDecimal( (object)i );
+
+                // Assert
+                Assert.Equal( i, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullObjectValue()
+            {
+                // Arrange
+                object o = null;
+
+                // Act
+                decimal? returned = ConversionTool.ToNullableDecimal( o );
+
                 // Assert
                 Assert.Equal( null, returned );
             }
@@ -139,8 +237,10 @@ namespace Costanza.Tests
                 // Arrange
                 int i = 11;
                 string s = i.ToString( CultureInfo.InvariantCulture );
+                
                 // Act
                 int returned = ConversionTool.ToInteger( s );
+                
                 // Assert
                 Assert.Equal( i, returned );
             }
@@ -149,9 +249,11 @@ namespace Costanza.Tests
             public void ReturnsZeroWhenConversionFails()
             {
                 // Arrange
-                string s = "Ping";
+                string s = "Tinker Tailor Soldier Cunt";
+                
                 // Act
                 int returned = ConversionTool.ToInteger( s );
+                
                 // Assert
                 Assert.Equal( 0, returned );
             }
@@ -160,10 +262,12 @@ namespace Costanza.Tests
             public void ReturnsValueWhenConversionFails()
             {
                 // Arrange
-                string s = "Mr Pitt";
+                string s = "Nicola Murray";
                 int i = 50;
+                
                 // Act
                 int returned = ConversionTool.ToInteger( s, 50 );
+                
                 // Assert
                 Assert.Equal( i, returned );
             }
@@ -172,10 +276,12 @@ namespace Costanza.Tests
             public void RespectsCultureWhenConverting()
             {
                 // Arrange
-                string s = "15";
+                string s = "15,0";
                 var culture = new CultureInfo( "nl-NL" );
+                
                 // Act
                 int returned = ConversionTool.ToInteger( s, culture );
+                
                 // Assert
                 Assert.Equal( 15, returned );
             }
@@ -184,10 +290,12 @@ namespace Costanza.Tests
             public void ReturnsZeroWhenConversionFailsWithCulture()
             {
                 // Arrange
-                string s = "2 Leederacola";
+                string s = "2 bastards";
                 var culture = new CultureInfo( "nl-NL" );
+                
                 // Act
                 int returned = ConversionTool.ToInteger( s, culture );
+                
                 // Assert
                 Assert.Equal( 0, returned );
             }
@@ -196,13 +304,54 @@ namespace Costanza.Tests
             public void ReturnsValueWhenConversionFailsWithCulture()
             {
                 // Arrange
-                string s = "Uncle Leo";
+                string s = "Stewart Pearson";
                 int i = 16;
                 var culture = new CultureInfo( "nl-NL" );
+                
                 // Act
                 int returned = ConversionTool.ToInteger( s, i, culture );
+                
                 // Assert
                 Assert.Equal( i, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullStringValue()
+            {
+                // Arrange
+                string s = null;
+
+                // Act
+                int returned = ConversionTool.ToInteger( s );
+
+                // Assert
+                Assert.Equal( 0, returned );
+            }
+
+            [Fact]
+            public void ConvertsObjectToInteger()
+            {
+                // Arrange
+                int i = 50;
+
+                // Act
+                int returned = ConversionTool.ToInteger( (object)i );
+
+                // Assert
+                Assert.Equal( i, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullObjectValue()
+            {
+                // Arrange
+                object o = null;
+
+                // Act
+                int returned = ConversionTool.ToInteger( o );
+
+                // Assert
+                Assert.Equal( 0, returned );
             }
         }
 
@@ -224,7 +373,7 @@ namespace Costanza.Tests
             public void ReturnsNullWhenConversionFails()
             {
                 // Arrange
-                string s = "Mickey";
+                string s = "Phil Smith";
                 // Act
                 int? returned = ConversionTool.ToNullableInteger( s );
                 // Assert
@@ -235,10 +384,12 @@ namespace Costanza.Tests
             public void RespectsCultureWhenConverting()
             {
                 // Arrange
-                string s = "25";
+                string s = "25,0";
                 var culture = new CultureInfo( "nl-NL" );
+
                 // Act
                 int? returned = ConversionTool.ToNullableInteger( s, culture );
+
                 // Assert
                 Assert.Equal( 25, returned );
             }
@@ -247,10 +398,51 @@ namespace Costanza.Tests
             public void ReturnsNullWhenConversionFailsWithCulture()
             {
                 // Arrange
-                string s = "4 Leederacola";
+                string s = "4 biscuits";
                 var culture = new CultureInfo( "nl-NL" );
+
                 // Act
                 int? returned = ConversionTool.ToNullableInteger( s, culture );
+
+                // Assert
+                Assert.Equal( null, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullStringValue()
+            {
+                // Arrange
+                string s = null;
+
+                // Act
+                int? returned = ConversionTool.ToNullableInteger( s );
+
+                // Assert
+                Assert.Equal( null, returned );
+            }
+
+            [Fact]
+            public void ConvertsObjectToInteger()
+            {
+                // Arrange
+                int i = 50;
+
+                // Act
+                int? returned = ConversionTool.ToNullableInteger( (object)i );
+
+                // Assert
+                Assert.Equal( i, returned );
+            }
+
+            [Fact]
+            public void ConvertsNullObjectValue()
+            {
+                // Arrange
+                object o = null;
+
+                // Act
+                int? returned = ConversionTool.ToNullableInteger( o );
+
                 // Assert
                 Assert.Equal( null, returned );
             }
