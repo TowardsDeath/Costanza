@@ -11,201 +11,201 @@ namespace Costanza
         /// <summary>
         /// Safely tries to convert an object to a decimal, and if the conversion fails, returns 0.
         /// </summary>
-        /// <param name="o">The object to convert.</param>
+        /// <param name="toConvert">The object to convert.</param>
         /// <returns>The decimal inside the supplied object, or 0 if the conversion fails.</returns>
-        public static decimal ToDecimal( object o )
+        public static decimal ToDecimal( object toConvert )
         {
-            return ConversionTool.ToDecimal( o != null ? o.ToString() : "" );
+            return ConversionTool.ToDecimal( toConvert != null ? toConvert.ToString() : "" );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a decimal, and if the conversion fails, returns 0.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <returns>The decimal inside the supplied string, or 0 if the conversion fails.</returns>
-        public static decimal ToDecimal( string s )
+        public static decimal ToDecimal( string toConvert )
         {
-            return ConversionTool.ToDecimal( s, 0m );
+            return ConversionTool.ToDecimal( toConvert, 0m );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a decimal, and if the conversion fails, returns a specified value.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="toReturnIfConversionFails">The value that will be returned if the conversion fails.</param>
         /// <returns>
         /// The decimal inside the supplied string, or the value of 
         /// <paramref name="toReturnIfConversionFails"/> if the conversion fails.
         /// </returns>
-        public static decimal ToDecimal( string s, decimal toReturnIfConversionFails )
+        public static decimal ToDecimal( string toConvert, decimal toReturnIfConversionFails )
         {
-            return ConversionTool.ToDecimal( s, toReturnIfConversionFails, CultureInfo.InvariantCulture );
+            return ConversionTool.ToDecimal( toConvert, toReturnIfConversionFails, CultureInfo.InvariantCulture );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a decimal using the specified format provider.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <returns>The decimal inside the supplied string, or 0 if the conversion fails.</returns>
-        public static decimal ToDecimal( string s, IFormatProvider provider )
+        public static decimal ToDecimal( string toConvert, IFormatProvider provider )
         {
-            return ConversionTool.ToDecimal( s, 0, provider );
+            return ConversionTool.ToDecimal( toConvert, 0, provider );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a decimal using the specified format provider, 
         /// and if the conversion fails, returns a specified value.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="toReturnIfConversionFails">The value that will be returned if the conversion fails.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <returns>
         /// The decimal inside the supplied string, or the value of 
         /// <paramref name="toReturnIfConversionFails"/> if the conversion fails.
         /// </returns>
-        public static decimal ToDecimal( string s, decimal toReturnIfConversionFails, IFormatProvider provider )
+        public static decimal ToDecimal( string toConvert, decimal toReturnIfConversionFails, IFormatProvider provider )
         {
             decimal d = 0;
-            return Decimal.TryParse( s, NumberStyles.Any, provider, out d ) ? d : toReturnIfConversionFails;
+            return Decimal.TryParse( toConvert, NumberStyles.Any, provider, out d ) ? d : toReturnIfConversionFails;
         }
 
         /// <summary>
         /// Safely tries to convert an object to a nullable decimal.
         /// </summary>
-        /// <param name="o">The object to convert.</param>
+        /// <param name="toConvert">The object to convert.</param>
         /// <returns>
         /// The decimal inside the supplied object, or null wrapped in a nullable decimal if the conversion fails.
         /// </returns>
-        public static decimal? ToNullableDecimal( object o )
+        public static decimal? ToNullableDecimal( object toConvert )
         {
-            return ConversionTool.ToNullableDecimal( o != null ? o.ToString() : "" );
+            return ConversionTool.ToNullableDecimal( toConvert != null ? toConvert.ToString() : "" );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a nullable decimal.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <returns>
         /// The decimal inside the supplied string, or null wrapped in a nullable decimal if the conversion fails.
         /// </returns>
-        public static decimal? ToNullableDecimal( string s )
+        public static decimal? ToNullableDecimal( string toConvert )
         {
-            return ConversionTool.ToNullableDecimal( s, CultureInfo.InvariantCulture );
+            return ConversionTool.ToNullableDecimal( toConvert, CultureInfo.InvariantCulture );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a nullable decimal using the specified format provider.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <returns>
         /// The decimal inside the supplied string, or null wrapped in a nullable decimal if the conversion fails.
         /// </returns>
-        public static decimal? ToNullableDecimal( string s, IFormatProvider provider )
+        public static decimal? ToNullableDecimal( string toConvert, IFormatProvider provider )
         {
             decimal d = 0;
-            return Decimal.TryParse( s, NumberStyles.Any, provider, out d ) ? d : (decimal?)null;
+            return Decimal.TryParse( toConvert, NumberStyles.Any, provider, out d ) ? d : (decimal?)null;
         }
 
         /// <summary>
         /// Safely tries to convert an object to an integer, and if the conversion fails, returns 0.
         /// </summary>
-        /// <param name="o">The object to convert.</param>
+        /// <param name="toConvert">The object to convert.</param>
         /// <returns>The integer inside the supplied object, or 0 if the conversion fails.</returns>
-        public static int ToInteger( object o )
+        public static int ToInteger( object toConvert )
         {
-            return ConversionTool.ToInteger( o != null ? o.ToString() : "" );
+            return ConversionTool.ToInteger( toConvert != null ? toConvert.ToString() : "" );
         }
 
         /// <summary>
         /// Safely tries to convert a string to an integer, and if the conversion fails, returns 0.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <returns>The integer inside the supplied string, or 0 if the conversion fails.</returns>
-        public static int ToInteger( string s )
+        public static int ToInteger( string toConvert )
         {
-            return ConversionTool.ToInteger( s, 0 );
+            return ConversionTool.ToInteger( toConvert, 0 );
         }
 
         /// <summary>
         /// Safely tries to convert a string to an integer, and if the conversion fails, returns a specified value.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="toReturnIfConversionFails">The value that will be returned if the conversion fails.</param>
         /// <returns>
         /// The integer inside the supplied string, or the value of 
         /// <paramref name="toReturnIfConversionFails"/> if the conversion fails.
         /// </returns>
-        public static int ToInteger( string s, int toReturnIfConversionFails )
+        public static int ToInteger( string toConvert, int toReturnIfConversionFails )
         {
-            return ConversionTool.ToInteger( s, toReturnIfConversionFails, CultureInfo.InvariantCulture );
+            return ConversionTool.ToInteger( toConvert, toReturnIfConversionFails, CultureInfo.InvariantCulture );
         }
 
         /// <summary>
         /// Safely tries to convert a string to an integer using the specified format provider.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <returns>The integer inside the supplied string, or 0 if the conversion fails.</returns>
-        public static int ToInteger( string s, IFormatProvider provider )
+        public static int ToInteger( string toConvert, IFormatProvider provider )
         {
-            return ConversionTool.ToInteger( s, 0, provider );
+            return ConversionTool.ToInteger( toConvert, 0, provider );
         }
 
         /// <summary>
         /// Safely tries to convert a string to an integer using the specified format provider, and 
         /// if the conversion fails, returns a specified value.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="toReturnIfConversionFails">The value that will be returned if the conversion fails.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <returns>
         /// The integer inside the supplied string, or the value of 
         /// <paramref name="toReturnIfConversionFails"/> if the conversion fails.
         /// </returns>
-        public static int ToInteger( string s, int toReturnIfConversionFails, IFormatProvider provider )
+        public static int ToInteger( string toConvert, int toReturnIfConversionFails, IFormatProvider provider )
         {
             int i = 0;
-            return Int32.TryParse( s, NumberStyles.Any, provider, out i ) ? i : toReturnIfConversionFails;
+            return Int32.TryParse( toConvert, NumberStyles.Any, provider, out i ) ? i : toReturnIfConversionFails;
         }
 
         /// <summary>
         /// Safely tries to convert an object to a nullable integer.
         /// </summary>
-        /// <param name="o">The object to convert.</param>
+        /// <param name="toConvert">The object to convert.</param>
         /// <returns>
         /// The integer inside the supplied object, or null wrapped in a nullable integer if the conversion fails.
         /// </returns>
-        public static int? ToNullableInteger( object o )
+        public static int? ToNullableInteger( object toConvert )
         {
-            return ConversionTool.ToNullableInteger( o != null ? o.ToString() : "" );
+            return ConversionTool.ToNullableInteger( toConvert != null ? toConvert.ToString() : "" );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a nullable integer.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <returns>
         /// The integer inside the supplied string, or null wrapped in a nullable integer if the conversion fails.
         /// </returns>
-        public static int? ToNullableInteger( string s )
+        public static int? ToNullableInteger( string toConvert )
         {
-            return ConversionTool.ToNullableInteger( s, CultureInfo.InvariantCulture );
+            return ConversionTool.ToNullableInteger( toConvert, CultureInfo.InvariantCulture );
         }
 
         /// <summary>
         /// Safely tries to convert a string to a nullable integer using the specified format provider.
         /// </summary>
-        /// <param name="s">The string to convert.</param>
+        /// <param name="toConvert">The string to convert.</param>
         /// <param name="provider">An object that supplies culture-specific formatting information.</param>
         /// <returns>
         /// The integer inside the supplied string, or null wrapped in a nullable integer if the conversion fails.
         /// </returns>
-        public static int? ToNullableInteger( string s, IFormatProvider provider )
+        public static int? ToNullableInteger( string toConvert, IFormatProvider provider )
         {
             int i = 0;
-            return Int32.TryParse( s, NumberStyles.Any, provider, out i ) ? i : (int?)null;
+            return Int32.TryParse( toConvert, NumberStyles.Any, provider, out i ) ? i : (int?)null;
         }
     }
 }
