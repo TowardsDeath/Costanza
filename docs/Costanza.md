@@ -171,6 +171,102 @@ DateTimeTool.IsToday( now ); // Returns true
 DateTimeTool.IsToday( tomorrow ); // Returns false
 ```
 
+### SpansMultipleDays
+
+`SpansMultipleDays` determines whether the start of a date range falls on another day than the end of that date range.
+
+```C#
+var differentStartDay = new DateTimeOffset( new DateTime( 2012, 12, 31, 23, 0, 0 ) ); // 31 December 2012 23:00
+var differentEndDay = new DateTimeOffset( new DateTime( 2013, 1, 1, 1, 0, 0 ) ); // 1 January 2013 1:00
+
+DateTimeTool.SpansMultipleDays( differentStartDay, differentEndDay ); // Returns true
+
+
+var sameDayStart = new DateTimeOffset( new DateTime( 2012, 8, 8, 17, 0, 0 ) ); // 8 August 17:00
+var sameDayEnd = new DateTimeOffset( new DateTime( 2012, 8, 8, 23, 0, 0 ) ); // 8 August 23:00
+
+DateTimeTool.SpansMultipleDays( sameDayStart, sameDayEnd ); // Returns false
+```
+
+### SpansMultipleMonths
+
+`SpansMultipleMonths` determines whether the start of a date range falls in another month than the end of that date range, similar to the `SpansMultipleDays` method.
+
+```C#
+var differentMonthStart = new DateTimeOffset( new DateTime( 2012, 1, 1 ) ); // 1 January 2012
+var differentMonthEnd = new DateTimeOffset( new DateTime( 2012, 3, 1 ) ); // 1 March 2012
+
+DateTimeTool.SpansMultipleMonths( differentMonthStart, differentMonthEnd ); // Returns true
+
+var sameMonthStart = new DateTimeOffset( new DateTime( 2012, 1, 1 ) ); // 1 January 2012
+var sameMonthEnd = new DateTimeOffset( new DateTime( 2012, 1, 15 ) ); // 15 January 2012
+
+DateTimeTool.SpansMultipleMonths( sameMonthStart, sameMonthEnd ); // Returns false
+```
+
+
+ExtensionsForString
+-------
+These are extension methods that are deemed useful enough to be present on every instance of `string`.
+
+### FormatWith
+
+`FormatWith` is a simple wrapper around the default `String.Format()`. It provides a more intuitive way of typing when you're formatting strings.
+
+```C#
+string format = "{0} bottles of Bosco";
+string s1 = String.Format( format, 4 ); // Standard formatting with .NET
+string s2 = format.FormatWith( 4 ); // Costanza extension method: much more intuitive to type
+```
+
+You can also specify a format provider if you want to have control over culture-specific settings.
+```C#
+var culture = new CultureInfo( "nl-NL" );
+string s1 = "{0} points".FormatWith( culture, 2.5m ); // s1 is "2,5 points"
+```
+
+### IsBlank
+
+`IsBlank` is a simple wrapper around `String.IsNullOrWhiteSpace()`. Like `FormatWith`, this enables a more intuitive way of checking whether a string has contents. It returns `true` if the string is null or consists of whitespace. Otherwise, returns `false`.
+
+```C#
+string someVariable = "Not empty";
+
+// Standard check with .NET
+String.IsNullOrWhiteSpace( someVariable ); // returns false
+
+// Costanza extension method: much more intuitive to type
+someVariable.IsBlank(); // returns false
+```
+
+### HasValue
+
+`HasValue` is the exact opposite of `IsBlank`: it returns `false` if the string is null or consists of whitespace. Otherwise, returns `true`.
+
+```C#
+string someVariable = "Not empty";
+
+// Standard check with .NET
+!String.IsNullOrWhiteSpace( someVariable ); // returns true
+
+// Costanza extension method: much more intuitive to type
+someVariable.HasValue(); // returns true
+```
+
+### EmptyToNull
+
+There are situations where you want to eliminate whitespace and want a string to have contents, or be null. You can use `EmptyToNull` for this: it turns whitespace strings into null values.
+
+```C#
+string nullString = null;
+string empty = "";
+string contents = "Not empty";
+
+nullString.EmptyToNull(); // returns null
+empty.EmptyToNull(); // returns null
+contents.EmptyToNull(); // returns "Not empty";
+```
+
 
 TransactionTool
 -------
@@ -179,7 +275,7 @@ You would be very wise to use transactions in your code. The `TransactionScope` 
 - **The transaction timeout is set to 1 minute.** If you change the timeout of your `SqlCommand` to more than 1 minute, you probably don't expect your transaction to timeout before that.
 - **The transaction isolation level is set to Serializable.** This is a setting that's prone to deadlocks. ReadCommitted is a better option in this case.
 
-The solution to this is the `TransacionTool` class. It creates a new `TransactionScope` without the harmful defaults.
+The solution to this is the `TransactionTool` class. It creates a new `TransactionScope` without the harmful defaults.
 
 ```C#
 using( var transaction = TransactionTool.CreateTransactionScope() )
