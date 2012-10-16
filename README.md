@@ -6,7 +6,6 @@ More clearly: a utility library you might find useful when you're building softw
 
 Features for ASP.NET MVC
 --------
-For building web applications in ASP.NET MVC:
  - Common route constraints.
  - Custom ActionResults.
  - Helpful extensions to `UrlHelper` and `HtmlHelper`.
