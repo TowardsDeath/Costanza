@@ -10,7 +10,7 @@ Features for ASP.NET MVC
  - Custom ActionResults.
  - Helpful extensions to `UrlHelper` and `HtmlHelper`.
 
-Read the [full documentation of Costanza.Mvc](https://github.com/versolamorte/costanza/blob/master/docs/Costanza.Mvc.md).
+And more. Read the [full documentation of Costanza.Mvc](https://github.com/versolamorte/costanza/blob/master/docs/Costanza.Mvc.md).
 
 
 Features for general .NET development

@@ -55,8 +55,8 @@
     <Compile Include="Results\CsvResult.cs" />
     <Compile Include="Results\ImageResult.cs" />
     <Compile Include="UrlHelpers\QueryStringExtensionsForUrlHelper.cs" />
-    <Compile Include="ViewHelpers\LinkExtensionsForHtmlHelper.cs" />
-    <Compile Include="ViewHelpers\MessageExtensionsForHtmlHelper.cs" />
+    <Compile Include="HtmlHelpers\LinkExtensionsForHtmlHelper.cs" />
+    <Compile Include="HtmlHelpers\MessageExtensionsForHtmlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Costanza\Costanza.csproj">
