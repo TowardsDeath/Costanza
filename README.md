@@ -1,7 +1,12 @@
 Costanza
 ========
 Your favourite short, stocky, slow-witted and bald friend for .NET and ASP.NET MVC.
-More clearly: More clearly: it�s a utility library that adds small improvements to the .NET framework and ASP.NET MVC.
+More clearly: it’s a utility library that adds small improvements to the .NET framework and ASP.NET MVC.
+
+The reasoning behind the name: it's a tribute to one of the greatest characters ever created in television, George Costanza. 
+Like George, to many this library may seem useless at first. However, prolonged exposure will eventually lead to a meaningful friendship.
+
+> “I don’t even like to use urinals, I’ve always been a stall man.” — George Costanza
 
 
 Features for ASP.NET MVC
