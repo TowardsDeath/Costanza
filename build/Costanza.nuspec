@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Costanza</id>
+    <version>0.1</version>
+    <authors>Verso La Morte</authors>
+    <projectUrl>https://github.com/VersoLaMorte/Costanza</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Your favourite short, stocky, slow-witted and bald friend for .NET. More clearly: it’s a utility library that adds small improvements to the .NET framework.</description>
+    <tags>Utility Library</tags>
+  </metadata>
+</package>

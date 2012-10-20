@@ -1,7 +1,7 @@
 Costanza
 ========
 Your favourite short, stocky, slow-witted and bald friend for .NET and ASP.NET MVC.
-More clearly: a utility library you might find useful when you're building software with .NET/ASP.NET MVC.
+More clearly: More clearly: it’s a utility library that adds small improvements to the .NET framework and ASP.NET MVC.
 
 
 Features for ASP.NET MVC
@@ -21,6 +21,23 @@ Features for general .NET development
  - Create transactions with the right transaction settings.
 
 Read the [full documentation of Costanza](https://github.com/versolamorte/costanza/blob/master/docs/Costanza.md).
+
+
+Installing
+--------
+Both Costanza and Costanza.Mvc are listed in the NuGet gallery.
+
+```
+PM> Install-Package Costanza 
+```
+
+```
+PM> Install-Package Costanza.Mvc 
+```
+
+Versions
+--------
+**0.1** Initial release.
 
 
 License

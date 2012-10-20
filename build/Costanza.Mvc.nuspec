@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+      <id>Costanza.Mvc</id>
+      <version>0.1</version>
+      <authors>Verso La Morte</authors>
+      <projectUrl>https://github.com/VersoLaMorte/Costanza</projectUrl>
+      <requireLicenseAcceptance>false</requireLicenseAcceptance>
+      <description>Your favourite short, stocky, slow-witted and bald friend for ASP.NET MVC. More clearly: it contains helpful extensions to the ASP.NET MVC framework. Things like extra action results, route constraints and HtmlHelpers.</description>
+      <tags>MVC ASP.NET</tags>
+      <dependencies>
+          <dependency id="Costanza" version="" />
+      </dependencies>
+  </metadata>
+</package>
