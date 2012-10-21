@@ -111,7 +111,7 @@ public ActionResult Csv()
 
 **Note**: the `TextInfo.ListSeparator` property of the CurrentCulture is used to separate the columns.
 
-### CsvResult
+### ImageResult
 
 `ImageResult` is a custom `ActionResult` that renders an image from a file location.
 
