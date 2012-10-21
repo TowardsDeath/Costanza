@@ -1,10 +1,25 @@
-Documentation of Costanza
+Features of Costanza
 =======
 
 - [ConversionTool](#conversiontool)
+    - ToDecimal
+    - ToNullableDecimal
+    - ToInteger
+    - ToNullableInteger
 - [DateTimeTool](#datetimetool)
+    - IsAtLeastAYearAgo
+    - IsAtLeastAYearFromNow
+    - IsNowInRange
+    - IsToday
+    - SpansMultipleDays
+    - SpansMultipleMonths
 - [ExtensionsForString](#extensionsforstring)
+    - FormatWith
+    - IsBlank
+    - HasValue
+    - EmptyToNull
 - [TransactionTool](#transactiontool)
+    - CreateTransactionScope
 
 
 ConversionTool
