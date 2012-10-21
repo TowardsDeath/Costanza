@@ -177,7 +177,7 @@ routes.MapRoute(
     "CarRoute",
     "cars/{type}",
     new { controller = "cars", action = "bytype" },
-    new { type = new EnumValueConstraint<ProductType>() } 
+    new { type = new EnumValueConstraint<CarType>() } 
 );
 
 /* 
