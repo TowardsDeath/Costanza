@@ -85,7 +85,7 @@ public ActionResult ArticleAtom()
 }
 ```
 
-**Note**: Atom is similar to RSS. However, RSS isn't a standard and should therefore be avoided. Always use Atom where possible. That's why there is no `RssResult` in Costanza.Mvc.
+**Note**: Atom is similar to RSS. However, RSS isn't a standard and should therefore be avoided. Always use Atom where possible.
 
 ### CsvResult
 
@@ -113,17 +113,42 @@ public ActionResult Csv()
 
 ### ImageResult
 
-`ImageResult` is a custom `ActionResult` that renders an image from a file location.
+`ImageResult` is a custom `ActionResult` that can render an image from the local file system, or a byte stream from memory, 
+with automatic support for HTTP 304 caching headers.
 
-Parameters:
-- `filePath`: the fully qualified name of the new image, or the file name relative to your MVC application. Allowed file types are JPEG, GIF or PNG.
+An example with an image on the local file system:
 
 ```C#
-public ActionResult Image()
+public ActionResult ImageAction()
 {
-    string path = @"C:\inetpub\app\files\image.jpeg";
-    return new ImageResult( path );
+    string virtualPath = "~/images/logo.png";
+    return new ImageResult( virtualPath, "image/png" );
 }
+```
+
+An example with a dynamically generated image using a stream:
+
+```C#
+public ActionResult ImageAction()
+{
+	using( var bitmap = new Bitmap( 125, 125 ) )
+	{
+		using( var g = Graphics.FromImage( bitmap ) )
+		{
+			// Do some drawing.
+
+			var stream = new MemoryStream();
+			bitmap.Save( stream, ImageFormat.Png );
+			return new ImageResult( stream, "image/png" );
+		}
+	}
+}
+```
+
+There's an overload to provide a custom last modified date (used for caching):
+
+```C#
+var result = new ImageResult( stream, "image/png", DateTime.Now.AddDays( -2 ) );
 ```
 
 
@@ -233,7 +258,7 @@ HtmlHelper extensions
 
 `UrlLink` generates the HTML for a hyperlink to a URI. This helper method is created as a partner of the `ActionLink` method that's provided by ASP.NET MVC. `UrlLink` can link to a fixed URL, whereas `ActionLink` can only link to actions.
 
-Action methods can be renamed, while URL's should stay the same as much as possible, so it's better to link to URL's than to action methods.
+Action methods can be renamed, while URL's should stay the same as much as possible, so it's better to link directly to URL's than to action methods.
 
 ```Razor
 @Html.UrlLink( "http://google.com", "Google" )
@@ -296,7 +321,7 @@ Then, call `ConfirmationNotice` with that key, in the view you're redirecting to
 @Html.ConfirmationNotice( "ShowNotice", "Your data was successfully edited." )
 ```
 
-When the form has been successfully processed, you'll see the message "*Your data was successfully edited.*" in the view. Refresh the page, and it's gone again.
+When the form has been successfully processed, you'll see the message *"Your data was successfully edited."* in the view. Refresh the page, and it's gone again.
 
 There's an overload for adding extra HTML attributes.
 
@@ -329,8 +354,8 @@ Or remove multiple parameters:
 
 Similar to `RemoveParameters`, `SetParameters` adds one or more parameters to the the query string **of the current request**.
 
-An example: the current request is `/products?price=50` and you want to link to the same URL, but without two extra parameters.
+An example: the current request is `/products?price=50` and you want to link to the same URL, but with two extra parameters.
 
 ```Razor
-<a href="@Url.SetParameters( new { price = 50, page = 3 } )">Link with price and page</a>
+<a href="@Url.SetParameters( new { category = 10, page = 3 } )">Link with price, category and page</a>
 ```

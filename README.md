@@ -42,7 +42,12 @@ PM> Install-Package Costanza.Mvc
 
 Versions
 --------
+Costanza
 **0.1** Initial release.
+
+Costanza.Mvc
+**0.1** Initial release.
+**0.1.1** ImageResult now has better caching and support for streams.
 
 
 License

@@ -2,7 +2,7 @@
 <package >
   <metadata>
       <id>Costanza.Mvc</id>
-      <version>0.1</version>
+      <version>0.1.1</version>
       <authors>Verso La Morte</authors>
       <projectUrl>https://github.com/VersoLaMorte/Costanza</projectUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
